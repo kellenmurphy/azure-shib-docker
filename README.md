@@ -2,7 +2,7 @@
 
 ## Shibboleth v4 Identity Provider Deployment using Docker
 
-This project represents my fork of @iay's personal deployment of the [Shibboleth](http://shibboleth.net) [v4 Identity Provider](https://wiki.shibboleth.net/confluence/display/IDP4) software using the [Docker](http://www.docker.com) container technology. See Ian's [README.md](README.iay.md) for more info.
+This project represents my fork of [@iay](https://github.com/iay/shibboleth-idp-docker)'s personal deployment of the [Shibboleth](http://shibboleth.net) [v4 Identity Provider](https://wiki.shibboleth.net/confluence/display/IDP4) software using the [Docker](http://www.docker.com) container technology. See Ian's [README.md](README.iay.md) for more info.
 
 This fork represents my attempt at getting together a quick package with which we can deploy an IDP quickly to an Azure Container Instance, using Azure Shared Files as backing for the relevant directories.
 

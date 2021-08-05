@@ -7,6 +7,9 @@ logs/*/
 shibboleth-idp/
 shibboleth-idp-*/
 saved-*/
+secrets/*
+!secrets/.gitkeep
+!secrets/EXAMPLE_azure.secrets
 
 #
 # The overlay directory is ignored, except for

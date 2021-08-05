@@ -1,0 +1,25 @@
+# build and deploy idp for azure
+
+services:
+    shibboleth-idp:
+        image: idmeregistry.azurecr.io/shibboleth-idp:latest
+        domainname: proxy
+        ports:
+            - "443:443"
+            - "8443:8443"
+        volumes:
+            - idp:/opt/shibboleth-idp
+            - jetty:/opt/jetty-base/logs
+        #command: tail -F /opt/jetty-base/logs/jetty.log
+        
+volumes:
+    idp:
+        driver: azure_file
+        driver_opts:
+            share_name: idpshare
+            storage_account_name: idmetest
+    jetty:
+        driver: azure_file
+        driver_opts:
+            share_name: jettyshare
+            storage_account_name: idmetest

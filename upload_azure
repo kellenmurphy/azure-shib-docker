@@ -1,0 +1,31 @@
+#!/bin/bash
+# requires azcopy https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10?toc=/azure/storage/files/toc.json
+
+if ! command -v azcopy &> /dev/null; then
+    echo "err: no azcopy!" >&2
+    exit 1
+fi
+
+if ! [ -e ./secrets/azure.secrets ]; then
+  echo 'no azure.secrets' >&2
+  exit 1
+else 
+  . ./secrets/azure.secrets
+fi
+
+AZ_STRING="${AZURE_FILE_ENDPOINT}"
+AZ_STRING+="${JETTY_SHARE_NAME}"
+AZ_STRING+="${AZURE_SAS}"
+azcopy make $AZ_STRING
+
+AZ_STRING="${AZURE_FILE_ENDPOINT}"
+AZ_STRING+="${IDP_SHARE_NAME}"
+AZ_STRING+="${AZURE_SAS}"
+azcopy make $AZ_STRING
+
+FILES="./shibboleth-idp/*"
+for f in $FILES
+do
+    echo $f
+    azcopy copy --recursive $f $AZ_STRING
+done

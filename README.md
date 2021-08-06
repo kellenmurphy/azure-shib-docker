@@ -97,3 +97,17 @@ If you wish to execute the repo locally, simply ensure that you've selected the 
     9. You can now update DNS, if your scoped domain is within Azure, to direct traffic directly to the entityID / hostname of your container.
 
     10. Metadata can then be downloaded, uploaded, etc. to leverage the running IDP for dev work!
+
+## Miscellany
+
+### WSL Scripts    
+
+I use Windows Subsystem for Linux for dev, and for whatever reason I can't use my Azure docker context within WSL (something about my environment most likely). To work around that, I use the wsl scripts. Don't use if you don't need them, but they might be useful if you're having that problem as well.
+
+### Azure Storage
+
+No doubt about it. This is a bit annoying to deal with. You can use [Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/#overview) to help deal with it a bit.
+
+### Config Repository
+
+If you want to overlay shibboleth configuration, and you have a directory / repo you want to overlay on top of opt/shibboleth-idp, use `sync-conf-repo.sh`.

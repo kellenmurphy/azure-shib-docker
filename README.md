@@ -73,10 +73,10 @@ If you wish to execute the repo locally, simply ensure that you've selected the 
 
     4. In order to provide the container access to the volumes used, namely `/opt/shibboleth-idp` and `/opt/jetty-base/logs`, which when running in the default context are just static binds to the local directories, we need to make sure those exist within an Azure [File Share](https://azure.microsoft.com/en-us/services/storage/files/#overview).
 
-    5. The script `upload_azure` uses [`AzCopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10) to create the relevant file shares within an Azure Storage account, and upload the contents of `./opt/shibboleth-idp` for use by the container. You can access the jetty logs from the `jettyshare`. You need to supply the secrets for your Azure storage account as described in the [example file](EXAMPLE_azure.secrets). The file name should be: [```azure.secrets```](EXAMPLE_azure.secrets). Run this script to create and upload the contents needed by the container.
+    5. The script `upload_azure.sh` uses [`AzCopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10) to create the relevant file shares within an Azure Storage account, and upload the contents of `./opt/shibboleth-idp` for use by the container. You can access the jetty logs from the `jettyshare`. You need to supply the secrets for your Azure storage account as described in the [example file](EXAMPLE_azure.secrets). The file name should be: [```azure.secrets```](EXAMPLE_azure.secrets). Run this script to create and upload the contents needed by the container.
    
     ```bash
-    ./upload_azure
+    ./upload_azure.sh
     ```
     
     6. Edit the `docker-compose.yml` file to adjust the share names for your Azure instance, as well as whatever domain name you want to use.
@@ -97,3 +97,17 @@ If you wish to execute the repo locally, simply ensure that you've selected the 
     9. You can now update DNS, if your scoped domain is within Azure, to direct traffic directly to the entityID / hostname of your container.
 
     10. Metadata can then be downloaded, uploaded, etc. to leverage the running IDP for dev work!
+
+## Miscellany
+
+### WSL Scripts    
+
+I use Windows Subsystem for Linux for dev, and for whatever reason I can't use my Azure docker context within WSL (something about my environment most likely). To work around that, I use the wsl scripts. Don't use if you don't need them, but they might be useful if you're having that problem as well.
+
+### Azure Storage
+
+No doubt about it. This is a bit annoying to deal with. You can use [Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/#overview) to help deal with it a bit.
+
+### Config Repository
+
+If you want to overlay shibboleth configuration, and you have a directory / repo you want to overlay on top of opt/shibboleth-idp, use `sync-conf-repo.sh`.

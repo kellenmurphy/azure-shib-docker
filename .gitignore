@@ -4,7 +4,8 @@ fetched-*/
 jetty-dist/
 logs/*/
 *~
-shibboleth-idp/
+shibboleth-idp
+shibboleth-idp/*
 shibboleth-idp-*/
 saved-*/
 secrets/*

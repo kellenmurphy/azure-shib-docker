@@ -13,7 +13,7 @@
       <Set name="directoriesListed">false</Set>
       <Set name="welcomeFiles">
         <Array type="String">
-          <Item>/Logout/index.html</Item>
+          <Item>/index.html</Item>
         </Array>
       </Set>
     </New>

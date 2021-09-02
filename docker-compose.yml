@@ -11,6 +11,7 @@ services:
             - idp:/opt/shibboleth-idp
             - jetty:/opt/jetty-base/logs
         #command: tail -F /opt/jetty-base/logs/jetty.log
+        restart: unless-stopped
         
 volumes:
     idp:

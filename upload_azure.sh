@@ -22,7 +22,7 @@ $AZCOPY_PATH/azcopy make --quota-gb 2 $AZ_STRING
 
 FILES="./shibboleth-idp/*"
 for f in $FILES; do
-  if [[ "$f" == "./shibboleth-idp/dist" ]] || [[ "$f" == "./shibboleth-idp/doc" ]]; then
+  if [[ "$f" == "./shibboleth-idp/doc" ]]; then
     continue
   fi
   echo "Uploading: " $f

@@ -20,10 +20,11 @@ JAVA_VERSION=amazoncorretto:11
 # Jetty 10.x releases do not use the additional release date
 # decoration; JETTY_DATE should be set empty in this case.
 #
+# https://www.eclipse.org/jetty/download.php
+#
 #JETTY_VERSION=10.0.6
-JETTY_DATE=
-JETTY_VERSION=9.4.40
-JETTY_DATE=v20210413
+JETTY_VERSION=9.4.43
+JETTY_DATE=v20210629
 
 #
 # Split the Jetty version number into its components.

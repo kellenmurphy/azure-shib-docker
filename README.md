@@ -15,8 +15,7 @@ The following steps need to be executed to "prime" the repo:
 1. Edit `VERSIONS` to specify the version of Java, Jetty, and Shibboleth that you want to use.
 2. Execute `./fetch-jetty` and alter the keystore passwords in `jetty-base-9.4/start.d/idp.ini`
 3. Execute `./fetch-shib`
-4. Execute `./gen-selfsigned-cert`
-5. Edit the `install-idp` script to change the critical elements
+4. Edit the `install-idp` script to change the critical elements
 
    * `TSPASS` and `SEALERPASS` are passwords to use if the trust fabric credentials or data sealer keystores,
    respectively, need to be generated. It's arguable whether changing the default `changeit` values
@@ -25,6 +24,8 @@ The following steps need to be executed to "prime" the repo:
    * `SCOPE` should be your organizational scope (`test.idmengineering.com` by default).
    * `HOST` is built from `SCOPE` by prepending `proxy.`, which probably won't suit you.
    * `ENTITYID` is built from `HOST`. The default here is the same as the interactive install would suggest.
+
+5. Execute `./install`
 
   Executing the `./install` script will now run the Shibboleth install process in a container based on the
   configured Docker Java image. If you do not have a `shibboleth-idp` directory, this will act like a first-time
@@ -35,6 +36,8 @@ The following steps need to be executed to "prime" the repo:
   case, the variables set at the top of the `install` script won't have any effect as the appropriate values
   are already frozen into the configuration.
 
+6. Execute `./gen-selfsigned-cert` to generate cert for SSL (HTTPS). Use `changeit` for the passwords unless you edited them in Step #4 above.
+
 ### Run Locally
 
 If you wish to execute the repo locally, simply ensure that you've selected the default Docker context, and run the build and run scripts.
@@ -43,6 +46,10 @@ If you wish to execute the repo locally, simply ensure that you've selected the 
   ./build
   ./run
   ```
+
+You can validate that you're up and running by visiting: [`https://localhost/idp/shibboleth`](https://localhost/idp/shibboleth)
+
+You can edit your IDP's config by modifying the files in `./shibboleth-idp` to your hearts content, just make sure to `./terminate` the running instance and re-run `./run` or `./build` and `./run` as necessary.
 
 ### Run within Azure
 

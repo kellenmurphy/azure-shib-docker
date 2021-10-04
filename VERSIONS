@@ -23,8 +23,8 @@ JAVA_VERSION=amazoncorretto:11
 # https://www.eclipse.org/jetty/download.php
 #
 #JETTY_VERSION=10.0.6
-JETTY_VERSION=9.4.43
-JETTY_DATE=v20210629
+JETTY_VERSION=9.4.44
+JETTY_DATE=v20210927
 
 #
 # Split the Jetty version number into its components.

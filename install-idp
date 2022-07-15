@@ -7,7 +7,7 @@ TFPASS=changeit
 SEALPASS=changeit
 
 # Scope for the IdP
-SCOPE=test.idmengineering.com
+SCOPE=example.org
 
 # Host name for the container
 HOST=idp.$SCOPE

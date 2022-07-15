@@ -13,8 +13,8 @@ This fork represents my attempt at getting together a quick package with which w
 The following steps need to be executed to "prime" the repo:
 
 1. Edit `VERSIONS` to specify the version of Java, Jetty, and Shibboleth that you want to use.
-2. Execute `./fetch-jetty` and alter the keystore passwords in `jetty-base-9.4/start.d/idp.ini`
-3. Execute `./fetch-shib`
+2. Execute `./fetch-jetty` and optionally alter the keystore passwords in `jetty-base-9.4/start.d/idp.ini` unless you want to keep the defaults.
+3. Execute `./fetch-shib` to download shibboleth
 4. Edit the `install-idp` script to change the critical elements
 
    * `TSPASS` and `SEALERPASS` are passwords to use if the trust fabric credentials or data sealer keystores,
@@ -38,7 +38,7 @@ The following steps need to be executed to "prime" the repo:
 
 6. Execute `./gen-selfsigned-cert` to generate cert for SSL (HTTPS). Use `changeit` for the passwords unless you edited them in Step #4 above.
 
-### Run Locally
+### Run Locally (THIS IS PROBABLY WHAT YOU WANT!!!)
 
 If you wish to execute the repo locally, simply ensure that you've selected the default Docker context, and run the build and run scripts.
 
@@ -51,7 +51,9 @@ You can validate that you're up and running by visiting: [`https://localhost/idp
 
 You can edit your IDP's config by modifying the files in `./shibboleth-idp` to your hearts content, just make sure to `./terminate` the running instance and re-run `./run` or `./build` and `./run` as necessary.
 
-### Run within Azure
+### Run within Azure (THIS IS PROBABLY NOT WHAT YOU WANT)
+
+You'll need to specify many things about your particularly Azure deployment, such as defining your own context, etc. Many of these things are IDME-specific.
 
 1. Build the image:
 

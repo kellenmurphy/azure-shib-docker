@@ -22,9 +22,9 @@ JAVA_VERSION=amazoncorretto:11
 #
 # https://www.eclipse.org/jetty/download.php
 #
-#JETTY_VERSION=10.0.6
-JETTY_VERSION=9.4.44
-JETTY_DATE=v20210927
+#JETTY_VERSION=10.0.11
+JETTY_VERSION=9.4.48
+JETTY_DATE=v20220622
 
 #
 # Split the Jetty version number into its components.
@@ -67,7 +67,7 @@ JETTY_BASE_VERSION=$JETTY_MAJOR.$JETTY_MINOR
 #
 # Shibboleth IdP
 #
-SHIB_RELEASE=4.1.4
+SHIB_RELEASE=4.1.6
 
 # Tell Emacs that this is a shell script.
 # Local Variables:

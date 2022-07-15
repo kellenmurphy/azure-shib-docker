@@ -10,7 +10,7 @@ SEALPASS=changeit
 SCOPE=test.idmengineering.com
 
 # Host name for the container
-HOST=proxy.$SCOPE
+HOST=idp.$SCOPE
 
 # Entity ID for the identity provider
 ENTITYID=https://$HOST/idp/shibboleth

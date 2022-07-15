@@ -21,8 +21,8 @@ The following steps need to be executed to "prime" the repo:
    respectively, need to be generated. It's arguable whether changing the default `changeit` values
    really adds any security given that the values are just put in the clear in property files anyway.
    I recommend leaving the values at their defaults.
-   * `SCOPE` should be your organizational scope (`test.idmengineering.com` by default).
-   * `HOST` is built from `SCOPE` by prepending `proxy.`, which probably won't suit you.
+   * `SCOPE` should be your organizational scope (`example.org` by default).
+   * `HOST` is built from `SCOPE` by prepending `idp.`, which possibly won't suit you.
    * `ENTITYID` is built from `HOST`. The default here is the same as the interactive install would suggest.
 
 5. Execute `./install`

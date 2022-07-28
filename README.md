@@ -1,5 +1,7 @@
 # `shibboleth-idp-docker`
 
+### Don't use! This is too Azure-centric now... I'm using [this](https://github.com/kellenmurphy/shib-idp-docker-wrapper) more-generic dev environment setup. 
+
 ## Shibboleth v4 Identity Provider Deployment using Docker
 
 This project represents my fork of [@iay](https://github.com/iay/shibboleth-idp-docker)'s personal deployment of the [Shibboleth](http://shibboleth.net) [v4 Identity Provider](https://wiki.shibboleth.net/confluence/display/IDP4) software using the [Docker](http://www.docker.com) container technology. See Ian's [README.md](README.iay.md) for more info.
